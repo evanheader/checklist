@@ -2,17 +2,42 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Simple Web App</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Daily Checklist</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <main class="app">
-      <h1>Welcome to your simple web app</h1>
-      <p>This page is powered by HTML, CSS, and JavaScript.</p>
-      <button id="demoButton">Click me</button>
-      <p id="message">Example text will appear here.</p>
-    </main>
+    <div class="phone-shell">
+      <main class="app">
+        <header class="app-header">
+          <div>
+            <p class="eyebrow">Daily planner</p>
+            <h1>My Checklist</h1>
+          </div>
+          <div class="date-pill" id="todayLabel">Loading…</div>
+        </header>
+
+        <section class="add-card">
+          <label class="sr-only" for="newItem">Add a checklist item</label>
+          <input
+            id="newItem"
+            type="text"
+            maxlength="80"
+            placeholder="Add a task"
+          />
+          <button id="addButton" type="button">Add</button>
+        </section>
+
+        <section class="summary" aria-live="polite">
+          <span id="progressText">0 of 0 completed</span>
+        </section>
+
+        <ul id="checklist" class="checklist"></ul>
+      </main>
+    </div>
 
     <script src="script.js"></script>
   </body>
