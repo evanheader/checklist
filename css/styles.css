@@ -202,28 +202,65 @@ button:hover {
   text-align: left;
 }
 
+.item-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.edit-btn,
 .remove-btn {
-  margin-left: 16px;
   background: transparent;
   color: var(--muted);
   padding: 8px;
   font-size: 1.05rem;
+}
+
+.edit-btn:hover {
+  color: var(--accent);
+}
+
+.remove-btn:hover {
+  color: #fda4af;
+}
+
+.edit-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.edit-input {
+  flex: 1;
+  min-width: 0;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 0.95rem;
+  background: var(--surface-soft);
+  color: var(--text);
+}
+
+.save-btn,
+.cancel-btn {
+  padding: 8px 10px;
+  font-size: 0.9rem;
+}
+
+.save-btn {
+  background: var(--accent);
+  color: white;
+}
+
+.cancel-btn {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
 }
 
 .item.completed .task-text {
   text-decoration: line-through;
   color: var(--muted);
-}
-
-.remove-btn {
-  background: transparent;
-  color: var(--muted);
-  padding: 8px;
-  font-size: 1.05rem;
-}
-
-.remove-btn:hover {
-  color: #fda4af;
 }
 
 .empty-state {
