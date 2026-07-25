@@ -1,0 +1,240 @@
+:root {
+  color-scheme: dark;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --bg: #030712;
+  --surface: #0f172a;
+  --surface-soft: #111827;
+  --surface-border: rgba(148, 163, 184, 0.16);
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --border: #334155;
+  --accent: #5b8dff;
+  --accent-soft: #1e293b;
+  --danger: #f87171;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at top, #10213c 0%, #030712 55%);
+  color: var(--text);
+  padding: 16px;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(94, 149, 255, 0.12), transparent 32%);
+  pointer-events: none;
+}
+
+.phone-shell {
+  width: min(100%, 430px);
+  position: relative;
+  z-index: 1;
+}
+
+.app {
+  width: 100%;
+  background: rgba(15, 23, 42, 0.96);
+  border-radius: 28px;
+  padding: 20px;
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.app-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.eyebrow {
+  margin: 0 0 4px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.55rem;
+  line-height: 1.1;
+}
+
+.date-pill {
+  background: var(--surface-soft);
+  color: var(--accent);
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.add-card {
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+input {
+  flex: 1;
+  min-width: 0;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px 16px;
+  font-size: 1rem;
+  background: var(--surface-soft);
+  color: var(--text);
+}
+
+input::placeholder {
+  color: var(--muted);
+}
+
+input:focus {
+  outline: 2px solid rgba(91, 141, 255, 0.25);
+  border-color: var(--accent);
+}
+
+button {
+  border: none;
+  border-radius: 14px;
+  padding: 14px 16px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 160ms ease, background-color 160ms ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+#addButton {
+  background: var(--accent);
+  color: white;
+  min-width: 72px;
+  flex-shrink: 0;
+}
+
+#addButton:hover {
+  background: #4a7bf0;
+}
+
+.summary {
+  margin-bottom: 12px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 60vh;
+  overflow-y: auto;
+  padding-right: 2px;
+}
+
+.checklist::-webkit-scrollbar {
+  width: 8px;
+}
+
+.checklist::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.26);
+  border-radius: 999px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--surface-border);
+  border-radius: 18px;
+  padding: 14px 14px;
+}
+
+.item label {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--accent);
+  flex-shrink: 0;
+}
+
+.task-text {
+  overflow-wrap: anywhere;
+  color: var(--text);
+}
+
+.item.completed .task-text {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+
+.remove-btn {
+  background: transparent;
+  color: var(--muted);
+  padding: 8px;
+  font-size: 1.05rem;
+}
+
+.remove-btn:hover {
+  color: #fda4af;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 18px;
+  color: var(--muted);
+  border: 1px dashed rgba(148, 163, 184, 0.24);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (min-width: 480px) {
+  .app {
+    padding: 24px;
+  }
+}
