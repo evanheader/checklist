@@ -197,7 +197,7 @@ button:hover {
 .task-text {
   overflow-wrap: anywhere;
   color: var(--text);
-  font-family: "Comic Sans MS", "Comic Neue", cursive, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 1rem;
   text-align: left;
 }
