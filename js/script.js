@@ -38,15 +38,16 @@ function formatPstDate(date = new Date()) {
 function loadItems() {
   const lastReset = localStorage.getItem(RESET_KEY);
   const today = getPstDateKey();
+  const savedItems = localStorage.getItem(STORAGE_KEY);
 
   if (lastReset !== today) {
-    items = [];
+    items = savedItems ? JSON.parse(savedItems) : [];
+    items = items.map((item) => ({ ...item, completed: false }));
     localStorage.setItem(RESET_KEY, today);
-    localStorage.removeItem(STORAGE_KEY);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
     return;
   }
 
-  const savedItems = localStorage.getItem(STORAGE_KEY);
   items = savedItems ? JSON.parse(savedItems) : [];
 }
 
@@ -280,7 +281,7 @@ function checkForReset() {
   const lastReset = localStorage.getItem(RESET_KEY);
 
   if (lastReset !== today) {
-    items = [];
+    items = items.map((item) => ({ ...item, completed: false }));
     saveItems();
     render();
   }
